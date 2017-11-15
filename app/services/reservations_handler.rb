@@ -10,6 +10,7 @@ class ReservationsHandler < ApplicationController
     else
       book.reservations.create(user: user, status: 'TAKEN')
     end
+    ReservationMailer.reservation_info(user, book, "custom_email@example.com").deliver_now #add user email
   end
 
   def give_back(book)

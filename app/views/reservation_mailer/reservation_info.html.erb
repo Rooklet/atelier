@@ -1,0 +1,10 @@
+<h1>Reservation</h1>
+<h2><p>Greetings!</p></h2>
+Thanks for reservation!
+
+There is some details about it:
+<p>Book title: <%= @book.title %></p>
+<p>ISBN: <%= @book.isbn %></p>
+<p>Reservation expire at: <%= @book.reservations.last.expires_at %></p>
+<p>Link to reserved book: <%= link_to @book.title, book_url(@book.id, host: "localhost:3000") %></p>
+
