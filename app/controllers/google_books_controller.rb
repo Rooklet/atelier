@@ -7,6 +7,7 @@ class GoogleBooksController < ApplicationController
 
   def volume_info
     total_items.to_i > 0 ? items[0].fetch('volumeInfo', '') : {}
+    byebug
   end
 
   def items
