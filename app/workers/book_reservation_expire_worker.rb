@@ -5,7 +5,9 @@ class BookReservationExpireWorker
     book = Book.find(book_id)
     if book.reservations.find_by(status: 'TAKEN')
       BookNotifierMailer.book_return_remind(book).deliver
-      BookNotifierMailer.book_reserved_return(book).deliver if book.next_in_queue
+      if book.next_in_queue
+        BookNotifierMailer.book_reserved_return(book).deliver
+      end
     end
   end
 end

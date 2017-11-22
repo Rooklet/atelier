@@ -36,7 +36,7 @@ class ReservationsHandler < ApplicationController
   attr_reader :user
 
   def perform_expiration_worker(reservation)
-    ::BookReservationExpireWorker.perform_at(reservation.expires_at-1.day, reservation.book_id)
+    ::BookReservationExpireWorker.perform_at(reservation.expires_at-2.day, reservation.book_id)
   end
 
   def next_in_queue(book)
