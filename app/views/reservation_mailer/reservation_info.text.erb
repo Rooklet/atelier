@@ -3,6 +3,6 @@ Thanks for reservation!
 There is some details about it:
 Book title: <%= @book.title %>
 ISBN: <%= @book.isbn %>
-Reservation expire at: <%= @book.reservations.last.expires_at %>
+Reservation expires at: <%= @reservation.expires_at %>
 Link to reserved book: <%= book_url(@book.id, host: "localhost:3000") %>
 

@@ -5,10 +5,11 @@ class ReservationMailer < ApplicationMailer
   #
   #   en.reservation_mailer.reservation_info.subject
   #
-  def reservation_info(user, book, email)
-    @user = user
+  def reservation_info(book)
     @book = book
+    @reservation = book.reservations.find_by(status: "TAKEN")  
+    @user = @reservation.user
 
-    mail(to: email, subject: "Reserved book: \"#{@book.title}\"")
+    mail to: @user.email, subject: "Reserved book: \"#{@book.title}\""
   end
 end

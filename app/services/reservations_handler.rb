@@ -6,11 +6,12 @@ class ReservationsHandler < ApplicationController
   def take(book)
     return "Books is not available for reservation" unless book.can_be_taken?(user)
     if book.available_reservation.present?
+      perform_expiration_worker(book.available_reservation)
       book.available_reservation.update_attributes(status: 'TAKEN')
     else
-      book.reservations.create(user: user, status: 'TAKEN')
+      perform_expiration_worker(book.reservations.create(user: user, status: 'TAKEN'))
     end
-    ReservationMailer.reservation_info(user, book, "custom_email@example.com").deliver_now #add user email
+    ReservationMailer.reservation_info(book).deliver_now
   end
 
   def give_back(book)
@@ -33,6 +34,10 @@ class ReservationsHandler < ApplicationController
   private
 
   attr_reader :user
+
+  def perform_expiration_worker(reservation)
+    ::BookReservationExpireWorker.perform_at(reservation.expires_at-1.day, reservation.book_id)
+  end
 
   def next_in_queue(book)
     book.reservations.where(status: 'RESERVED').order(created_at: :asc).first
