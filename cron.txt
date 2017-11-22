@@ -1,0 +1,4 @@
+# Begin Whenever generated tasks for: /Projects/atelier/config/schedule.rb at: 2017-11-22 04:12:04 +0100
+0 8 * * * /bin/bash -l -c 'cd /Projects/atelier && RAILS_ENV=development bundle exec rake reservation:lunch_return_remind_mailer --silent'
+
+# End Whenever generated tasks for: /Projects/atelier/config/schedule.rb at: 2017-11-22 04:12:04 +0100
