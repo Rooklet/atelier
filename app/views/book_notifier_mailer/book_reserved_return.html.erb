@@ -1,3 +1,3 @@
-<h1>Hej <%= @reserver.email %></h1>
-Książka <%= @book.title %> wkrótce będzie dostępna!
-<p><%= link_to "Przejdź do książki", book_url(@book.id, host: "localhost:3000") %></p>
+<h1>Hi <%= @reserver.email %></h1>
+Book "<%= @book.title %>" will be available soon!
+<p><%= link_to "Go to the book.", book_url(@book.id, host: "localhost:3000") %></p>
