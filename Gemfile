@@ -20,6 +20,7 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'sidekiq'
 gem 'whenever', require: false
 gem 'active_hash'
+gem 'omniauth-google-oauth2'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
