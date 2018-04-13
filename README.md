@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby recommended v.2.5.1
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To run App:
+clone https://github.com/Rooklet/atelier
+run bundle install
+install redis-server
+update database.yml
+run rails db:setup
+run sidekiq
+run rails server
