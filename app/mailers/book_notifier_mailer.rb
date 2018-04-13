@@ -10,7 +10,7 @@ class BookNotifierMailer < ApplicationMailer
 
   def book_reserved_return(book)
     @book = book      
-    @reserver = @book.next_in_queue.user # jest takie słowo?
+    @reserver = @book.next_in_queue.user
     
     mail to: @reserver.email, subject: "\"#{@book.title}\" will be available soon."
   end

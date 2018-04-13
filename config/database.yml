@@ -10,7 +10,7 @@ default: &default
   pool: 5
   port: 5432
   host: 'localhost'
-  username: khrx
+  username: user123
   password: password123
 
 development:

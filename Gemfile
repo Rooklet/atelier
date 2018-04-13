@@ -6,7 +6,6 @@ git_source(:github) do |repo_name|
 end
 
 gem 'devise'
-
 gem 'rails', '~> 5.1.2'
 gem 'pg'
 gem 'sqlite3'
@@ -20,14 +19,13 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'sidekiq'
 gem 'whenever', require: false
 gem 'active_hash'
-gem 'omniauth-google-oauth2'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'rspec-rails', '~> 3.6'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'faker', git: 'git://github.com/stympy/faker.git', branch: 'master'
 end
 
